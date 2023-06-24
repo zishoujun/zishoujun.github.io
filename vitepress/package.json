@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "start": "http-server -o -p 8888 vitepress/docs/.vitepress/dist",
+    "help": "vitepress --help"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-beta.1",
+    "vue": "^3.3.4"
+  }
+}
