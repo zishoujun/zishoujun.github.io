@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as a}from"./chunks/framework.4afe7240.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"react/install.md","filePath":"react/install.md","lastUpdated":1687613994000}'),r={name:"react/install.md"};function s(n,c,o,l,i,d){return e(),a("div")}const m=t(r,[["render",s]]);export{_ as __pageData,m as default};

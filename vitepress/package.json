@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs --outDir F:/QIAN_DUAN/zishoujun.github.io/docs",
+    "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "start": "http-server -o -p 8888 vitepress/docs/.vitepress/dist",
     "help": "vitepress --help"
