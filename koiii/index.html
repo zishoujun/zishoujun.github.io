@@ -137,13 +137,13 @@
         </p>
     </div>
         <div class="container" style="display: none;">
-        <audio id="background-music" loop>
+        <audio id="background-music">
             <source src="./不分手的恋爱.mp3" type="audio/mpeg">
         </audio>
     </div>
     <script>
         const audioElement = document.getElementById('background-music');
-
+        audioElement.loop = true;
         function togglePlay() {
             if (audioElement.paused) {
                 audioElement.play();
