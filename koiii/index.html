@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="./icon.jpg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js"></script>
     <style>
         * {
             padding: 0;
@@ -62,12 +61,12 @@
 
         .card p {
             color: transparent;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgb(207, 84, 84) 33.3%, rgba(252, 176, 69, 1) 66.6%, rgba(131, 58, 180, 1) 100%);
             background-clip: text;
             background-size: 300% 100%;
             animation: text 4s infinite linear;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
 
@@ -141,6 +140,7 @@
             <source src="./不分手的恋爱.mp3" type="audio/mpeg">
         </audio>
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js"></script>
     <script>
         const audioElement = document.getElementById('background-music');
         audioElement.loop = true;
