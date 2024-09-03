@@ -136,6 +136,29 @@
             <span title="我们最甜蜜的记忆，那最初的一吻">Our sweetest memorial the first kiss of love.</span>
         </p>
     </div>
+        <div class="container" style="display: none;">
+        <audio id="background-music" loop>
+            <source src="./不分手的恋爱.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        const audioElement = document.getElementById('background-music');
+
+        function togglePlay() {
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        }
+
+        // 自动播放音乐（可选）
+        window.onload = function () {
+            audioElement.play().catch(error => {
+                console.error("自动播放失败，用户可能需要手动播放。", error);
+            });
+        };
+    </script>
 </body>
 
 </html>
