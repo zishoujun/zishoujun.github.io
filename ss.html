@@ -35,7 +35,7 @@
         fetch("https://2024.ipchaxun.com").then(res => {
             return res.json()
         }).then(res => {
-            const unicodeStr = JSON.stringify({ "ret": "ok", "ip": "11.73.177.191", "data": ["中国", "江西", "景德镇", "珠山", "电信", "333000", "0798"] })
+            const unicodeStr = JSON.stringify(res)
             const encoder = new TextEncoder();
             const utf8Array = encoder.encode(unicodeStr);
             const binaryStr = String.fromCharCode(...utf8Array);
