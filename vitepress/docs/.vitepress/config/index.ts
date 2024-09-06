@@ -8,7 +8,7 @@ export default {
   lastUpdated: true,
   head: [['link', { rel: 'icon', href: '/images/logo_icon.png' }]],
   themeConfig: {
-    logo: '/logo-horizontal.png',
+    logo: '/logo-horizontal.jpg',
     siteTitle: false,
     nav: [
       { text: 'plus', link: '/plus/index' },

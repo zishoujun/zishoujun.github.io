@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: ZI_SHOW
-  text: 我想退休
+  name: 小布丁
+  text: xiao_bu_ding
   tagline: 有朋自远方来，不亦说乎
   image:
-    src: /images/logo.png
-    alt: zi-su
+    src: /images/logo.jpg
+    alt: zs
   actions:
     - theme: brand
       text: Get Started
