@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        const time = params.get('time') || 0
+        if (new Date().getTime() - time > 30 * 1000 ) {
+            window.location.replace(window.location.origin+window.location.pathname+`?time=${new Date().getTime()}`)
+        }
+    </script>
 </head>
 
 <body>
