@@ -30,14 +30,20 @@
 </head>
 
 <body>
+    <div style="width: 100%;display: flex;height: auto;">
+        <input type="text" id="input" style="flex:1">
+        <button onclick="onbtnClick()">解密</button>
+    </div>
     <div id="app"></div>
     <script>
-        fetch("https://2024.ipchaxun.com").then(res => {
-            return res.json()
-        }).then(res => {
-            const unicodeStr = JSON.stringify(res)
-            document.getElementById('app').innerText = unicodeStr
-        })
+        function onbtnClick() {
+            const value = document.getElementById('input').value
+            // const decodedBinaryStr = atob(value);
+            // const decodedUtf8Array = Uint8Array.from(decodedBinaryStr, c => c.charCodeAt(0));
+            // const decoder = new TextDecoder();
+            // const decodedStr = decoder.decode(decodedUtf8Array);
+            document.getElementById('app').innerText = decodeURIComponent(value)
+        }
     </script>
 </body>
 
