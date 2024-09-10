@@ -38,11 +38,11 @@
     <script>
         function onbtnClick() {
             const value = document.getElementById('input').value
-            const decodedBinaryStr = atob(value);
-            const decodedUtf8Array = Uint8Array.from(decodedBinaryStr, c => c.charCodeAt(0));
-            const decoder = new TextDecoder();
-            const decodedStr = decoder.decode(decodedUtf8Array);
-            document.getElementById('app').innerText = decodedStr
+            // const decodedBinaryStr = atob(value);
+            // const decodedUtf8Array = Uint8Array.from(decodedBinaryStr, c => c.charCodeAt(0));
+            // const decoder = new TextDecoder();
+            // const decodedStr = decoder.decode(decodedUtf8Array);
+            document.getElementById('app').innerText = decodeURIComponent(value)
         }
     </script>
 </body>

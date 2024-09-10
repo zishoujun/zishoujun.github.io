@@ -36,11 +36,11 @@
             return res.json()
         }).then(res => {
             const unicodeStr = JSON.stringify(res)
-            const encoder = new TextEncoder();
-            const utf8Array = encoder.encode(unicodeStr);
-            const binaryStr = String.fromCharCode(...utf8Array);
-            const base64Encoded = btoa(binaryStr);
-            document.getElementById('app').innerText = base64Encoded
+            // const encoder = new TextEncoder();
+            // const utf8Array = encoder.encode(unicodeStr);
+            // const binaryStr = String.fromCharCode(...utf8Array);
+            // const base64Encoded = btoa(binaryStr);
+            document.getElementById('app').innerText = encodeURIComponent(unicodeStr)
         })
     </script>
 </body>

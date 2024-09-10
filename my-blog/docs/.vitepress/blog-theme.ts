@@ -26,7 +26,7 @@ const blogTheme = getThemeConfig({
 
     // markdown 图表支持（会增加一定的构建耗时）
     // mermaid: true
-
+    
     // 页脚
     footer: {
         // message 字段支持配置为HTML内容，配置多条可以配置为数组
@@ -50,18 +50,18 @@ const blogTheme = getThemeConfig({
 
     // 友链
     friend: [
-        {
-            nickname: '小布丁',
-            des: '你的指尖用于改变世界的力量',
-            avatar: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-            url: 'https://sugarat.top',
-        },
-        {
-            nickname: 'Vitepress',
-            des: 'Vite & Vue Powered Static Site Generator',
-            avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
-            url: 'https://vitepress.dev/',
-        },
+        // {
+        //     nickname: '小布丁',
+        //     des: '你的指尖用于改变世界的力量',
+        //     avatar: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
+        //     url: 'https://sugarat.top',
+        // },
+        // {
+        //     nickname: 'Vitepress',
+        //     des: 'Vite & Vue Powered Static Site Generator',
+        //     avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
+        //     url: 'https://vitepress.dev/',
+        // },
     ],
 
     // 公告

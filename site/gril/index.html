@@ -4,139 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>koiii</title>
-    <link rel="shortcut icon" href="./icon.jpg" type="image/x-icon">
+    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" class="icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+    <link rel="stylesheet" href="./index.css">
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        const time = params.get('time') || 0
+        if (new Date().getTime() - time > 30 * 1000 ) {
+            window.location.replace(window.location.origin+window.location.pathname+`?time=${new Date().getTime()}`)
         }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            background: #ffc0cb33;
-        }
-
-        html {
-            background-image: url('./bg.jpg');
-            background-position: right top;
-            background-size: cover;
-            font-size: 16px;
-            overflow: hidden;
-        }
-        body{
-            overflow-y:auto ;
-            padding: 5vw;
-        }
-        .card {
-            width: 100%;
-            max-width: 1080px;
-            height: 200px;
-            margin: 20px auto;
-            height: auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            line-height: 1.5;
-            font-weight: bold;
-
-        }
-
-        .card-title {
-            margin-top: 0;
-            margin-bottom: .5rem;
-            font-size: 20px;
-        }
-
-
-        img {
-            display: block;
-            margin: 0 auto;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-        }
-
-
-
-        .card p {
-            color: transparent;
-            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgb(207, 84, 84) 33.3%, rgba(252, 176, 69, 1) 66.6%, rgba(131, 58, 180, 1) 100%);
-            background-clip: text;
-            background-size: 300% 100%;
-            animation: text 4s infinite linear;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-
-        @keyframes text {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: -150% 0;
-            }
-        }
-
-
-
-
-
-
-        .card1 {
-            background: linear-gradient(to right, rgba(198, 255, 221, 0.4), rgba(251, 215, 134, 0.4), rgba(247, 121, 125, 0.4));
-            backdrop-filter: blur(10px);
-        }
-
-        .card2 {
-            background: linear-gradient(to right, rgba(255, 175, 189, .4), rgba(255, 195, 160, .4));
-            backdrop-filter: blur(10px);
-        }
-
-        .card3 {
-            background: linear-gradient(to right, rgba(12, 235, 235, 0.4), rgba(32, 227, 178, 0.4), rgba(41, 255, 198, 0.4));
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    </script>
 </head>
 
 <body>
-    <img src="" class="avatar">
+    <div style="width:120px;height:120px;background: #f3d3ec;margin: 0 auto;border-radius: 50%;">
+        <img src="" class="avatar">
+    </div>
     <h1 style="text-align: center;margin-top: 10px; color: #f82448;" class="title"></h1>
     <p style="text-align: center;margin-top: 10px;color: #f824ca;" class="desc"></p>
     <div class="card card1">
         <p class="card-title">Sonnet 116 by William Shakespeare</p>
-        <p title="沧桑轮回，爱却长生不改;爱恒久坚定，直到末日的尽头;假如有人能证明我说的不实;那就算我从未写诗，世人也从未爱过 ">
-            <span>Love alters not with his brief hours and weeks;</span>
-            <span>But bears it out even to the edge of doom;</span>
-            <span>If this be error and upon me proved;</span>
-            <span>I never writ, nor no man ever loved.</span>
+        <p class="content" title="沧桑轮回，爱却长生不改;爱恒久坚定，直到末日的尽头;假如有人能证明我说的不实;那就算我从未写诗，世人也从未爱过 ">
+            Love alters not with his brief hours and weeks;
+            But bears it out even to the edge of doom;
+            If this be error and upon me proved;
+            I never writ, nor no man ever loved.
         </p>
     </div>
-
     <div class="card card2">
         <p class="card-title">She Walks in Beauty by Lord Byron</p>
-        <p title="她走在美的光彩中，像夜晚; 皎洁无云而且繁星漫天; 黑夜与白天最美妙的色彩; 都在她的面容和目光里显现! ">
-            <span>She walks in beauty, like the night;</span>
-            <span>Of cloudless climes and starry skies;</span>
-            <span>And all that's best of dark and bright;</span>
-            <span>Meet in her aspect and her eyes.</span>
+        <p class="content" title="她走在美的光彩中，像夜晚; 皎洁无云而且繁星漫天; 黑夜与白天最美妙的色彩; 都在她的面容和目光里显现! ">
+            She walks in beauty, like the night;
+            Of cloudless climes and starry skies;
+            And all that's best of dark and bright;
+            Meet in her aspect and her eyes.
         </p>
     </div>
 
     <div class="card card3">
         <p class="card-title">The first kiss of love by Lord Byron</p>
-        <p title="当岁月让热血冷却，让欢乐远去;年月就像白鸽的翅膀般飞走;然而，最深切的记忆则会永存;我们最甜蜜的记忆，那最初的一吻">
-            <span>When age chills the blood, when our pleasures are past;</span>
-            <span>For years fleet away with the wings of the dove;</span>
-            <span>The dearest remembrance will still be the last;</span>
-            <span>Our sweetest memorial the first kiss of love.</span>
+        <p class="content" title="当岁月让热血冷却，让欢乐远去;年月就像白鸽的翅膀般飞走;然而，最深切的记忆则会永存;我们最甜蜜的记忆，那最初的一吻">
+            When age chills the blood, when our pleasures are past;
+            For years fleet away with the wings of the dove;
+            The dearest remembrance will still be the last;
+            Our sweetest memorial the first kiss of love.
         </p>
     </div>
     <div class="container" style="display: none;">
@@ -165,6 +78,7 @@
         };
     </script>
     <script src="./index.js"></script>
+
 </body>
 
 </html>
