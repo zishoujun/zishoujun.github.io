@@ -15,65 +15,6 @@ export default {
     //   ]
     // }
   ],
-  // '/guide/': [
-  //   {
-  //     text: '基础',
-  //     items: [
-  //       { text: '安装', link: '/guide/install' },
-  //       { text: '快速开始', link: '/guide/quickstart' }
-  //     ]
-  //   }
-  // ],
-  // '/components/': [
-  //   {
-  //     text: '基本',
-  //     items: [
-  //       { text: 'Button 按钮', link: '/components/button/' },
-  //       { text: 'Grid 栅格', link: '/components/grid/' },
-  //       { text: 'Icon 图标', link: '/components/icon/' }
-  //     ]
-  //   },
-  //   {
-  //     text: '导航',
-  //     items: [
-  //       { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb/' },
-  //       { text: 'Dropdown 下拉菜单', link: '/components/dropdown/' },
-  //       { text: 'Pagination 分页', link: '/components/pagination/' }
-  //     ]
-  //   },
-  //   {
-  //     text: '表单',
-  //     items: [
-  //       { text: 'Checkbox 复选框', link: '/components/checkbox/' },
-  //       { text: 'Input 输入框', link: '/components/input/' },
-  //       { text: 'Switch 开关', link: '/components/switch/' },
-  //       { text: 'Slider 滑块', link: '/components/slider/' },
-  //       { text: 'Collapse 折叠面板 ', link: '/components/collapse/' },
-  //       { text: 'DatePicker 日期选择器', link: '/components/datepicker/' },
-  //       { text: 'Upload 上传', link: '/components/upload/' }
-  //     ]
-  //   },
-  //   {
-  //     text: '视图',
-  //     items: [
-  //       { text: 'Swiper 轮播', link: '/components/swiper/' },
-  //       { text: 'Progress 进度条', link: '/components/progress/' },
-  //       { text: 'Table 表格', link: '/components/table/' }
-  //     ]
-  //   },
-  //   {
-  //     text: '提示',
-  //     items: [
-  //       { text: 'Alert 警告', link: '/components/alert/' },
-  //       { text: 'Message 消息提示', link: '/components/message/' },
-  //       { text: 'Dialog 对话框', link: '/components/dialog/' }
-  //     ]
-  //   },
-  //   {
-  //     text: '其他',
-  //     items: [{ text: 'Backtop 回到顶部', link: '/components/backtop/' }]
-  //   }
-  // ],
   '/vue/': [
     {
       text: '基础',
@@ -143,20 +84,20 @@ export default {
     //     // { text: '快速开始', link: '/guide/quickstart' }
     //   ]
     // },
-    // {
-    //   text: '源码',
-    //   items: [
-    //     { text: '安装', link: '/vue/react' },
-    //     // { text: '快速开始', link: '/guide/quickstart' }
-    //   ]
-    // },
     {
-      text: 'React-Native',
+      text: '相关库',
       items: [
-        { text: '环境配置', link: '/react/native/huanjingdajian' },
-        { text: '热更新', link: '/react/native/codepush' },
+        { text: 'redux', link: '/react/redux' },
+        // { text: '快速开始', link: '/guide/quickstart' }
       ]
     },
+    // {
+    //   text: 'React-Native',
+    //   items: [
+    //     { text: '环境配置', link: '/react/native/huanjingdajian' },
+    //     { text: '热更新', link: '/react/native/codepush' },
+    //   ]
+    // },
   ],
   // '/git/': [
   //   {

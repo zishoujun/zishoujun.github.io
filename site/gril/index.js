@@ -1,8 +1,10 @@
-document.title = "韩语研";
-document.querySelector(".icon").href = "./images/韩语研.jpg";
-document.querySelector(".avatar").src = "./images/韩语研.jpg";
+document.title = "小茉莉";
+document.querySelector(".icon").href = "./images/icon.jpg";
+document.querySelector(".avatar").src = "./images/icon.jpg";
 document.querySelector(".title").innerHTML = document.title;
-document.querySelector(".desc").innerHTML = `A girl who loves to laugh is always lucky! `;
+document.querySelector(
+    ".desc"
+).innerHTML = `A girl who loves to laugh is always lucky! `;
 
 const card1 = document.querySelector(".card1").querySelector('.content');
 const card2 = document.querySelector(".card2").querySelector('.content');
@@ -22,4 +24,3 @@ const translater = () => {
     bool = !bool
 };
 document.querySelector(".avatar").addEventListener("click", translater);
-

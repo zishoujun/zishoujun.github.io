@@ -28,11 +28,11 @@ features:
     title: react/react-native
     details: 渐进式JavaScript 框架
     link: /react/install
-  # - icon:
-  #     src: /typescript.png
-  #   title: TypeScript
-  #   details: 带有类型语法的JavaScript
-  #   link: /guide/install
+  - icon:
+      src: /typescript.png
+    title: TypeScript
+    details: 带有类型语法的JavaScript
+    link: /guide/install
   - icon:
       src: /JavaScript.png
     title: JavaScript

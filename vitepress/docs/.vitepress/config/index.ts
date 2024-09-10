@@ -7,6 +7,12 @@ export default {
     //   description: '精通hello world',
     lastUpdated: true,
     //   head: [['link', { rel: 'icon', href: '/images/logo_icon.png' }]],
+    head: [
+        // 配置网站的图标（显示在浏览器的 tab 上）
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        ['script', { src: 'https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js' }],
+        ['script', { src: 'https://unpkg.com/cursor-effects@1.0.15/dist/browser.js' }]
+    ],
     themeConfig: {
         // logo: '/logo-horizontal.jpg',
         siteTitle: false,
