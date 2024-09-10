@@ -1,6 +1,6 @@
 document.title = "韩语研";
-document.querySelector(".icon").href = "./images/韩语研.jpg";
-document.querySelector(".avatar").src = "./images/韩语研.jpg";
+document.querySelector(".icon").href = "./images/icon.jpg";
+document.querySelector(".avatar").src = "./images/icon.jpg";
 document.querySelector(".title").innerHTML = document.title;
 document.querySelector(
     ".desc"
