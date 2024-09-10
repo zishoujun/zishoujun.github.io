@@ -1,4 +1,4 @@
-document.title = "韩语研";
+document.title = "小茉莉";
 document.querySelector(".icon").href = "./images/icon.jpg";
 document.querySelector(".avatar").src = "./images/icon.jpg";
 document.querySelector(".title").innerHTML = document.title;
