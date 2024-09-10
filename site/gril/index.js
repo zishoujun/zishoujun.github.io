@@ -1,6 +1,6 @@
 document.title = "小茉莉";
-document.querySelector(".icon").href = "./images/icon.jpg";
-document.querySelector(".avatar").src = "./images/icon.jpg";
+document.querySelector(".icon").href = "./icon.jpg";
+document.querySelector(".avatar").src = "./icon.jpg";
 document.querySelector(".title").innerHTML = document.title;
 document.querySelector(
     ".desc"
