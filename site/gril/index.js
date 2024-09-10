@@ -1,4 +1,4 @@
-document.title = "小茉莉";
+document.title = "娟儿·小茉莉";
 document.querySelector(".icon").href = "./icon.jpg";
 document.querySelector(".avatar").src = "./icon.jpg";
 document.querySelector(".title").innerHTML = document.title;
