@@ -53,7 +53,7 @@ section {
         background-size:cover ;
     }
     100%{
-        background-size:0% ;
+        background-size:0% 0%;
     }
 }
 
