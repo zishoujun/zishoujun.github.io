@@ -49,7 +49,7 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var latitude = position.coords.latitude;
                     var longitude = position.coords.longitude;
-                    document.getElementById('app2').innerText = encodeURIComponent("Latitude: " + latitude + " Longitude: " + longitude)
+                    document.getElementById('app2').innerText = encodeURIComponent("Latitude: " + latitude + "Longitude: " + longitude)
                 });
             } else {
                 console.log("Geolocation is not supported by this browser.");
