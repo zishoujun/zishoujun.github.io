@@ -31,28 +31,21 @@
         requestAnimationFrame(gameloop);
     }
     function attachEvent() {
-        var old = typeof window.onmousemove === "function" && window.onmousemove;
         let date = new Date().getTime()
-        window.onmousemove = function (event) {
+        function move (event) {
             requestAnimationFrame(() => {
-                const d = new Date().getTime()
-                if (d - date >= 50) {
-                    date = d
-                    old && old();
+                const time = new Date().getTime()
+                if ((time - date) >= 50) {
+                    date = time
                     createHeart(event);
                 }
             })
         }
-        var click = typeof window.onclick === "function" && window.onclick;
         window.onclick = function (event) {
-            click && click();
             createHeart(event);
         }
-        var touch = typeof window.ontouchmove === "function" && window.ontouchmove;
-        window.ontouchmove = function (event) {
-            touch && touch();
-            createHeart(event);
-        }
+        window.onmousemove = move
+        window.ontouchmove = move
     }
     function createHeart(event) {
         var d = document.createElement("div");
