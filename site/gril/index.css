@@ -16,23 +16,18 @@ html {
     background-position: right top;
     background-size: cover;
     font-size: 16px;
-    animation: fadeOut 10s infinite;
+    animation: fadeOut 10s 3s infinite ;
 }
 
 @keyframes fadeOut {
-    0% {
-
-        background-image: url('./bg.jpg');
-    }
-
-    50% {
-
+    25% {
         background-image: url('./bg2.jpg');
     }
-
-    75% {
-
+    50% {
         background-image: url('./bg3.png');
+    }
+    75% {
+        background-image: url('./bg.jpg');
     }
 }
 

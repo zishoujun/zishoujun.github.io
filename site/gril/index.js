@@ -72,8 +72,3 @@ render(bool ? json.en : json.zh)
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-setInterval(() => {
-    const index = getRandomNumber(1, 100) % 3
-    console.log('index',index)
-    // document.documentElement.style.backgroundImage = `url(${images[index]})`
-}, 5000)
