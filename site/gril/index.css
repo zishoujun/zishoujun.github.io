@@ -13,11 +13,13 @@ body {
 }
 
 html {
+    background-image: url('./bg2.jpg');
+    background-image: url('./bg3.png');
     background-image: url('./bg.jpg');
     background-position: right top;
     background-size: cover;
     font-size: 16px;
-    animation: fadeOut 10s 3s infinite;
+    animation: fadeOut 10s 10s infinite;
 }
 
 @keyframes fadeOut {
@@ -34,13 +36,6 @@ html {
     }
 }
 
-body {
-    background-image: url('./bg.jpg');
-    background-position: right top;
-    background-size: cover;
-    font-size: 16px;
-    animation: fade 5s forwards;
-}
 
 section {
     min-height: 100%;
