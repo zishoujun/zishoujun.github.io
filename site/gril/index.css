@@ -17,24 +17,44 @@ html {
     background-position: right top;
     background-size: cover;
     font-size: 16px;
-    animation: fadeOut 10s 3s infinite ;
+    animation: fadeOut 10s 3s infinite;
 }
 
 @keyframes fadeOut {
     25% {
         background-image: url('./bg2.jpg');
     }
+
     50% {
         background-image: url('./bg3.png');
     }
+
     75% {
         background-image: url('./bg.jpg');
     }
 }
 
 body {
+    background-image: url('./bg.jpg');
+    background-position: right top;
+    background-size: cover;
+    font-size: 16px;
+    animation: fade 5s forwards;
+}
+
+section {
+    min-height: 100%;
     overflow-y: auto;
     padding: 5vw;
+}
+
+@keyframes fade {
+    0%{
+        background-size:cover ;
+    }
+    100%{
+        background-size:0% ;
+    }
 }
 
 .card {
