@@ -20,7 +20,7 @@ const json = {
         ],
     },
     zh: {
-        title: "史梦雪",
+        title: "欣欣呐~",
         desc: "爱笑的女孩总是幸运的！",
         card: [
             {
