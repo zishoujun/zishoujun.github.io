@@ -1,8 +1,8 @@
-document.querySelector(".icon").href = "./icon.jpg";
-document.querySelector(".avatar").src = "./icon.jpg";
+document.querySelector(".icon").href = "./xin.png";
+document.querySelector(".avatar").src = "./xin.png";
 const json = {
     en: {
-        title: "shi·meng·xue",
+        title: "xin·xin",
         desc: "A girl who loves to laugh is always lucky!",
         card: [
             {
