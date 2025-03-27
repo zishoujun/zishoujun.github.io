@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=referrer content=no-referrer>
+  <title>Video Download</title>
+</head>
+<body>
+  <h1>Download Video</h1>
+  <video id="videoElement" width="600" controls>
+    <source
+      src="
+      https://us-xpc11.xpccdn.com/5eedc3e2c2238.mp4?j=%7B%22userId%22%3A14713694%2C%22deviceId%22%3A%2234m0kt3eplwoqd8xf%22%2C%22ip%22%3A%22111.18.97.182%2C111.19.219.62%22%7D
+      "
+      type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <br>
+  <button id="downloadButton">Download Video</button>
+
+  <script>
+    document.getElementById('downloadButton').addEventListener('click', function () {
+      // 获取视频URL
+      const videoUrl = document.querySelector('video source').src;
+
+      // Fetch视频文件并转化为Blob对象
+      fetch(videoUrl)
+        .then(response => response.blob())
+        .then(blob => {
+          // 创建一个下载链接
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.download = 'video.mp4';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error downloading the video:', error));
+    });
+  </script>
+</body>
+
+</html>
