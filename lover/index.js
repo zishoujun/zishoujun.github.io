@@ -92,13 +92,11 @@ document.querySelector(".avatar").addEventListener("click", () => {
         } else {
             console.log("Geolocation is not supported by this browser.");
         }
+        bool = !bool;
+        render(bool ? json.en : json.zh)
     } catch (error) {
         console.log('error',error)
     }
-    bool = !bool;
-    render(bool ? json.en : json.zh)
-
-
 });
 render(bool ? json.en : json.zh)
 function getRandomNumber(min, max) {
