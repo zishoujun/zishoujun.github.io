@@ -1,5 +1,3 @@
-document.querySelector(".icon").href = "./avatar.jpg";
-document.querySelector(".avatar").src = "./avatar.jpg";
 const json = {
     en: {
         title: "rui·rui",
