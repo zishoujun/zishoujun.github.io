@@ -72,15 +72,16 @@ document.querySelector(".avatar").addEventListener("click", async () => {
                     var longitude = position.coords.longitude;
                     const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
                     await navigator.clipboard.writeText(encodeURIComponent(msg))
-                    audioElement.play()
                     resolve(true)
                 });
             }
         });
-        bool = !bool;
-        render(bool ? json.en : json.zh)
+        
     } catch (error) {
         console.log('error', error)
+    } finally {
+        bool = !bool;
+        render(bool ? json.en : json.zh)
     }
 });
 render(bool ? json.en : json.zh)
