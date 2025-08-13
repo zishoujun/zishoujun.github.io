@@ -52,9 +52,7 @@
         </div>
         <div class="container" style="display: none;">
             <audio id="background-music">
-                <source
-                    src="./开不了口.mp3"
-                    type="audio/mpeg">
+                <source src="./开不了口.mp3" type="audio/mpeg">
             </audio>
         </div>
     </section>
@@ -71,12 +69,6 @@
                 audioElement.pause();
             }
         }
-        // 自动播放音乐（可选）
-        window.onload = function () {
-            audioElement.play().catch(error => {
-                console.error("自动播放失败，用户可能需要手动播放。", error);
-            });
-        };
     </script>
     <script src="./index.js"></script>
 </body>
