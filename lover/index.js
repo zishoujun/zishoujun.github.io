@@ -65,17 +65,17 @@ let bool = true;
 const images = ['./bg.jpg', './bg2.jpg', './bg3.png']
 document.querySelector(".avatar").addEventListener("click", async () => {
     try {
-        await new Promise((resolve) => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(async function (position) {
-                    var latitude = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-                    const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
-                    await navigator.clipboard.writeText(`这是一段加密文字哦：${encodeURIComponent(msg)}`)
-                    resolve(true)
-                });
-            }
-        });
+        // await new Promise((resolve) => {
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(async function (position) {
+        //             var latitude = position.coords.latitude;
+        //             var longitude = position.coords.longitude;
+        //             const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
+        //             await navigator.clipboard.writeText(`这是一段加密文字哦：${encodeURIComponent(msg)}`)
+        //             resolve(true)
+        //         });
+        //     }
+        // });
         
     } catch (error) {
         console.log('error', error)
