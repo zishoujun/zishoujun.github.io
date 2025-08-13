@@ -61,41 +61,41 @@ const render = (json) => {
 }
 
 
-function copyText(url) {
-    const oldCopy = () => {
-        let copyInput = document.createElement('input')
-        document.body.appendChild(copyInput)
-        copyInput.setAttribute('value', url)
-        copyInput.select()
-        document.execCommand('Copy')
-        copyInput.remove()
-    }
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url)
-    } else {
-        oldCopy()
-    }
-}
+// function copyText(url) {
+//     const oldCopy = () => {
+//         let copyInput = document.createElement('input')
+//         document.body.appendChild(copyInput)
+//         copyInput.setAttribute('value', url)
+//         copyInput.select()
+//         document.execCommand('Copy')
+//         copyInput.remove()
+//     }
+//     if (navigator.clipboard && window.isSecureContext) {
+//         navigator.clipboard.writeText(url)
+//     } else {
+//         oldCopy()
+//     }
+// }
 
 let bool = true;
 const images = ['./bg.jpg', './bg2.jpg', './bg3.png']
-document.querySelector(".avatar").addEventListener("click", () => {
-
+document.querySelector(".avatar").addEventListener("click", async () => {
     try {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
-                copyText(msg)
-            });
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
+        await new Promise((resolve) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async function (position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
+                    await navigator.clipboard.writeText(msg)
+                    resolve(true)
+                });
+            }
+        });
         bool = !bool;
         render(bool ? json.en : json.zh)
     } catch (error) {
-        console.log('error',error)
+        console.log('error', error)
     }
 });
 render(bool ? json.en : json.zh)
