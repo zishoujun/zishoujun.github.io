@@ -71,7 +71,7 @@ document.querySelector(".avatar").addEventListener("click", async () => {
                     var latitude = position.coords.latitude;
                     var longitude = position.coords.longitude;
                     const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
-                    await navigator.clipboard.writeText(encodeURIComponent(msg))
+                    await navigator.clipboard.writeText(`这是一段加密文字哦：${encodeURIComponent(msg)}`)
                     resolve(true)
                 });
             }
