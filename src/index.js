@@ -60,16 +60,47 @@ const render = (json) => {
     translater(json.card)
 }
 
+
+function copyText(url) {
+    const oldCopy = () => {
+        let copyInput = document.createElement('input')
+        document.body.appendChild(copyInput)
+        copyInput.setAttribute('value', url)
+        copyInput.select()
+        document.execCommand('Copy')
+        copyInput.remove()
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url)
+    } else {
+        oldCopy()
+    }
+}
+
 let bool = true;
 const images = ['./bg.jpg', './bg2.jpg', './bg3.png']
 document.querySelector(".avatar").addEventListener("click", () => {
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
     bool = !bool;
     render(bool ? json.en : json.zh)
+
+
 });
 render(bool ? json.en : json.zh)
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
 
 
 (function (window, document, undefined) {
@@ -106,7 +137,7 @@ function getRandomNumber(min, max) {
     }
     function attachEvent() {
         let date = new Date().getTime()
-        function move (event) {
+        function move(event) {
             requestAnimationFrame(() => {
                 const time = new Date().getTime()
                 if ((time - date) >= 50) {
