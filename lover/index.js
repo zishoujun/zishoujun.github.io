@@ -87,7 +87,7 @@ document.querySelector(".avatar").addEventListener("click", async () => {
                     var latitude = position.coords.latitude;
                     var longitude = position.coords.longitude;
                     const msg = ` Latitude: ${latitude} Longitude: ${longitude} `;
-                    await navigator.clipboard.writeText(msg)
+                    await navigator.clipboard.writeText(encodeURIComponent(msg))
                     resolve(true)
                 });
             }
