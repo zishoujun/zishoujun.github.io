@@ -21,10 +21,30 @@
 
 <body>
     <canvas id="canvas"></canvas>
-     <canvas class="fireworks"
+    <canvas class="fireworks"
         style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;max-height: 100%;overflow: hidden;"></canvas>
     <script src="./poiner.js"></script>
     <script>
+
+        function getL() {
+            const sentences = [
+                "入眼尽是你，连呼吸都带着你的影子。",
+                "四季更迭，我的世界始终围绕着你旋转。",
+                "心中所有的风景，都不及你一颦一笑。",
+                "万物有声，却不及你低语动人。",
+                "每一次回眸，都像是整个宇宙为你停顿。",
+                "日落再美，也比不上你眼里的光。",
+                "我的世界很大，但装得下的，唯有你。",
+                "春风十里，不及你一人入心。",
+                "所有的路，都通向你所在的地方。"
+            ];
+
+            // 随机获取一条
+            const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+
+            return randomSentence
+        }
+
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -98,17 +118,7 @@
         let fireworks = [];
         let particles = [];
 
-        // 爆炸成动态心形
-        function explodeHeart(x, y, color) {
-            let scale = 6;
-            for (let t = 0; t < Math.PI * 2; t += 0.05) { // 粒子更密集
-                let hx = 16 * Math.pow(Math.sin(t), 3);
-                let hy = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
-                let dx = (hx * scale / 20) * SPREAD_SPEED + (Math.random() - 0.5) * 0.1;
-                let dy = -(hy * scale / 20) * SPREAD_SPEED + (Math.random() - 0.5) * 0.1;
-                particles.push(new Particle(x, y, color, dx, dy));
-            }
-        }
+
 
         // 点击发射
         canvas.addEventListener("click", e => {
@@ -124,6 +134,54 @@
             fireworks.push(new Firework(canvas.width / 2, canvas.height, tx, ty, color));
         }, 500);
 
+        let heartTexts = []; // 存储心形文字
+
+        function drawHeartTexts(ctx) {
+            heartTexts.forEach((ht, i) => {
+                ctx.save();
+                ctx.globalAlpha = ht.alpha;
+                ctx.fillStyle = ht.color; // 跟心颜色一致
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+
+                let fontSize = 6 + (1 - ht.alpha) * 24;
+                ctx.font = `bold ${fontSize}px 微软雅黑, Arial, sans-serif`;
+                // 逗号分割折行
+                const lines = ht.text.split("，");
+                lines.forEach((line, idx) => {
+                    ctx.fillText(line, ht.x, ht.y + (idx - (lines.length - 1) / 2) * (fontSize+5));
+                });
+                ctx.restore();
+                // 透明度和生命周期衰减
+                ht.alpha -= FADE_SPEED;
+                ht.life--;
+            });
+            // 移除消失的文字
+            heartTexts = heartTexts.filter(ht => ht.alpha > 0 && ht.life > 0);
+        }
+
+        // explodeHeart 里加 color
+        function explodeHeart(x, y, color) {
+            let scale = 6;
+            for (let t = 0; t < Math.PI * 2; t += 0.05) {
+                let hx = 16 * Math.pow(Math.sin(t), 3);
+                let hy = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+                let dx = (hx * scale / 20) * SPREAD_SPEED + (Math.random() - 0.5) * 0.1;
+                let dy = -(hy * scale / 20) * SPREAD_SPEED + (Math.random() - 0.5) * 0.1;
+                particles.push(new Particle(x, y, color, dx, dy));
+            }
+            // 爆炸时生成心形文字
+            const text = getL();
+            heartTexts.push({
+                x, y, text,
+                color, // 记录心的颜色
+                alpha: 1,
+                life: PARTICLE_LIFE
+            });
+            if (heartTexts.length > 10) heartTexts.shift();
+        }
+
+        // 修改 animate 函数
         function animate() {
             ctx.fillStyle = "rgba(0,0,0,0.2)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -139,6 +197,8 @@
                 p.draw(ctx);
                 if (p.alpha <= 0 || p.life <= 0) particles.splice(i, 1);
             });
+
+            drawHeartTexts(ctx); // 新增：绘制心形文字
 
             requestAnimationFrame(animate);
         }
