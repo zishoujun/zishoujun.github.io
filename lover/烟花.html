@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let fireworks = [];
+        let particles = [];
+
+        // 随机函数
+        function random(min, max) { return Math.random() * (max - min) + min }
+
+        // 烟花发射类
+        class Firework {
+            constructor() {
+                this.x = random(100, canvas.width - 100);
+                this.y = canvas.height;
+                this.targetY = random(100, canvas.height / 2);
+                this.speed = random(7, 12);
+                this.color = `hsl(${Math.floor(random(0, 360))},100%,50%)`;
+                this.trail = [];
+                this.exploded = false;
+            }
+            update() {
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > 8) this.trail.shift();
+                this.y -= this.speed;
+
+                ctx.beginPath();
+                ctx.moveTo(this.trail[0].x, this.trail[0].y);
+                for (let i = 1; i < this.trail.length; i++) ctx.lineTo(this.trail[i].x, this.trail[i].y);
+                ctx.strokeStyle = this.color;
+                ctx.stroke();
+
+                if (this.y <= this.targetY && !this.exploded) {
+                    this.explode();
+                    this.exploded = true;
+                }
+            }
+            explode() {
+                const count = random(80, 150);
+                for (let i = 0; i < count; i++) particles.push(new Particle(this.x, this.y));
+                // 二次爆炸随机生成大颗粒
+                if (Math.random() < 0.3) {
+                    const subCount = random(20, 40);
+                    for (let i = 0; i < subCount; i++) {
+                        particles.push(new Particle(this.x, this.y, true));
+                    }
+                }
+            }
+        }
+
+        // 粒子类
+        class Particle {
+            constructor(x, y, large = false) {
+                this.x = x;
+                this.y = y;
+                this.radius = large ? random(3, 5) : random(2, 4);
+                this.angle = random(0, Math.PI * 2);
+                this.speed = large ? random(5, 12) : random(3, 8);
+                this.friction = 0.95;
+                this.gravity = 0.06;
+                this.alpha = 1;
+                this.decay = random(0.015, 0.03);
+                this.color = `hsl(${Math.floor(random(0, 360))},100%,50%)`;
+                this.trail = [{ x: this.x, y: this.y }];
+            }
+            update() {
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > 5) this.trail.shift();
+
+                this.speed *= this.friction;
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed + this.gravity;
+                this.alpha -= this.decay;
+                if (this.alpha <= 0) return false;
+
+                // 尾迹渐隐
+                for (let i = 0; i < this.trail.length - 1; i++) {
+                    const p1 = this.trail[i];
+                    const p2 = this.trail[i + 1];
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(255,255,255,${this.alpha * (i / this.trail.length)})`;
+                    ctx.stroke();
+                }
+
+                // 粒子主体
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 2);
+                grad.addColorStop(0, `rgba(255,255,255,${this.alpha})`);
+                grad.addColorStop(0.5, this.color);
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                return true;
+            }
+        }
+
+        // 动画循环
+        function animate() {
+            ctx.fillStyle = 'rgba(0,0,0,0.2)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (Math.random() < 0.05) fireworks.push(new Firework());
+
+            fireworks.forEach((f, i) => {
+                f.update();
+                if (f.exploded) fireworks.splice(i, 1);
+            });
+
+            particles = particles.filter(p => p.update());
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+</body>
+
+</html>
