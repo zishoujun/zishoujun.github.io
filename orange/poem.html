@@ -65,11 +65,11 @@
         audioElement.loop = true;
 
         // 自动播放音乐（可选）
-        // window.onload = function () {
-        //     audioElement.play().catch(error => {
-        //         console.error("自动播放失败，用户可能需要手动播放。", error);
-        //     });
-        // };
+        window.onload = function () {
+            audioElement.play().catch(error => {
+                console.error("自动播放失败，用户可能需要手动播放。", error);
+            });
+        };
     </script>
     <script src="./index.js"></script>
 </body>
