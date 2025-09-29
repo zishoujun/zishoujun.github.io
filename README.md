@@ -13,3 +13,4 @@ hobby: 唱歌
 daily: 健身操/2day
 love: 花花
 fruit: 
+
