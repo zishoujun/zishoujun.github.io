@@ -2,7 +2,7 @@ const searchURL = "https://a.buguyy.top/newapi/search.php?keyword="
 const musicURL = "https://a.buguyy.top/newapi/geturl2.php"
 async function apiSearchList(value) {
   const list =  await fetch(searchURL + encodeURIComponent(value)).then(res => res.json()).then(res => res.data.list)
-  return list
+  console.log('list',list)
 }
 
 async function apiMusicData(id) {
@@ -55,3 +55,5 @@ function downloadFile(content, filename, isUrl = false) {
         URL.revokeObjectURL(link.href); // 释放对象 URL
     }
 }
+
+console.log(searchURL + encodeURIComponent('玫瑰窃贼'));
