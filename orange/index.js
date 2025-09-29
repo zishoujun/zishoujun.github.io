@@ -1,6 +1,6 @@
 const json = {
     en: {
-        title: "rui·rui",
+        title: "cheng·zi",
         desc: "A girl who loves to laugh is always lucky!",
         card: [
             {
@@ -18,7 +18,7 @@ const json = {
         ],
     },
     zh: {
-        title: "蕊蕊呐~",
+        title: "橙子呐~",
         desc: "爱笑的女孩总是幸运的！",
         card: [
             {
