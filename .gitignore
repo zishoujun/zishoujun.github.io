@@ -4,3 +4,4 @@ yarn.lock
 bun.lockb
 config.yaml
 */node_modules
+.vscode
