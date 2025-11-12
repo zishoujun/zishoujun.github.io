@@ -146,8 +146,7 @@
         <div class="box">
             <canvas id="pinkboard"></canvas>
             <div class="timer">
-                <!-- <img src="./avatar.jpg" alt="" srcset=""> -->
-                <div class="text">小璟</div>
+                <div class="text">相识</div>
                 <div id="loveTimer"></div>
             </div>
         </div>
@@ -159,8 +158,8 @@
     <script src="./poiner.js"></script>
     <script src="../sakura/dist/sakura.min.js"></script>
     <script>
-        // 表白内容
-        const message = "小璟，真的好喜欢你啊；希望以后每一天都能陪你一起走下去，开心也好，难过也好，都有我在你身边；今天我爱你，余生也会继续爱你！";
+        // 表白内容真的好喜欢你啊；希望以后每一天都能陪你一起走下去，开心也好，难过也好，都有我在你身边；今天我爱你，余生也会继续爱你
+        const message = "时间走走停停，就像我想你时，时而澎湃时而宁静！";
         const descBox = document.querySelector('.desc');
         let index = 0;
 
@@ -200,12 +199,12 @@
         // ...existing code...
         function updateLoveTimer() {
             // 设置纪念日为2025年8月8日8点
-            var startDate = new Date(2025, 6, 29, 0, 0, 0); // 月份从0开始，7代表8月
+            var startDate = new Date(2025, 10, 10, 22, 27, 52); // 月份从0开始，7代表8月
             var now = new Date();
             var diff = now - startDate;
 
             if (diff < 0) {
-                document.getElementById('loveTimer').innerText = "纪念日还没到哦~";
+                document.getElementById('loveTimer').innerText = "待相知~";
                 return;
             }
 
